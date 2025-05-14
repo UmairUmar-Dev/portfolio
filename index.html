@@ -3,30 +3,227 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Your Name</title>
+  <title>Muhammad Umair Umar – Unity Game Developer</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
   <style>
+    :root {
+      --bg: #0f172a;
+      --text: #e2e8f0;
+      --card: #1e293b;
+      --link: #60a5fa;
+      --accent: #38bdf8;
+      --title: #facc15;
+    }
+
+    [data-theme="light"] {
+      --bg: #f1f5f9;
+      --text: #1e293b;
+      --card: #ffffff;
+      --link: #2563eb;
+      --accent: #2563eb;
+      --title: #ca8a04;
+    }
+
     body {
-      font-family: sans-serif;
+      margin: 0;
+      font-family: 'Inter', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      transition: background 0.3s, color 0.3s;
+    }
+
+    header {
+      padding: 2rem;
       text-align: center;
-      padding: 50px;
-      background-color: #f0f0f0;
+      background: var(--card);
     }
-    h1 {
-      color: #333;
+
+    header h1 {
+      margin: 0;
+      font-size: 2.5rem;
+      color: var(--accent);
     }
-    a {
-      color: #007acc;
+
+    header p {
+      font-size: 1.1rem;
+      margin: 0.5rem 0;
+    }
+
+    .links a {
+      margin: 0 1rem;
+      color: var(--link);
       text-decoration: none;
-      margin: 10px;
+    }
+
+    .toggle-theme {
+      background: none;
+      border: 1px solid var(--link);
+      color: var(--link);
+      padding: 0.4rem 0.8rem;
+      cursor: pointer;
+      border-radius: 6px;
+      margin-top: 1rem;
+    }
+
+    .section {
+      padding: 2rem;
+      max-width: 1000px;
+      margin: auto;
+    }
+
+    .section h2 {
+      font-size: 2rem;
+      color: var(--title);
+      margin-bottom: 1rem;
+    }
+
+    .project-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .card {
+      background: var(--card);
+      padding: 1rem;
+      border-radius: 10px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+      transition: transform 0.2s ease;
+    }
+
+    .card:hover {
+      transform: scale(1.02);
+    }
+
+    .card img {
+      width: 100%;
+      border-radius: 6px;
+      margin-bottom: 0.5rem;
+    }
+
+    .card h3 {
+      margin-top: 0.2rem;
+      color: var(--accent);
+    }
+
+    .card p {
+      font-size: 0.95rem;
+    }
+
+    .card a {
+      color: var(--link);
+      text-decoration: none;
+      display: inline-block;
+      margin-top: 0.5rem;
+    }
+
+    .resume-button {
+      display: inline-block;
+      margin-top: 1rem;
+      padding: 0.5rem 1rem;
+      background: var(--accent);
+      color: #000;
+      border-radius: 6px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    footer {
+      text-align: center;
+      padding: 2rem;
+      background: var(--card);
+      color: var(--text);
+      font-size: 0.9rem;
     }
   </style>
 </head>
 <body>
-  <h1>Hello, I'm Your Name 👋</h1>
-  <p>I'm a Unity Game Developer passionate about RPGs, action games, and hyper-casual titles.</p>
+
+<header>
+  <h1>Muhammad Umair Umar</h1>
+  <p>Unity Game Developer | Action | RPG | Hyper-Casual | Web3</p>
+  <div class="links">
+    <a href="https://github.com/UmairUmar-Dev" target="_blank">GitHub</a>
+    <a href="https://www.linkedin.com/in/umairumar94/" target="_blank">LinkedIn</a>
+    <a href="mailto:umairu172@gmail.com">Email</a>
+  </div>
+  <button class="toggle-theme" onclick="toggleTheme()">Toggle Theme</button><br/>
+  <a class="resume-button" href="assets/Muhammad_Umair_Umar_Resume.pdf" download>📄 Download Resume</a>
+</header>
+
+<section class="section">
+  <h2>About Me</h2>
   <p>
-    <a href="https://github.com/your-username">GitHub</a> |
-    <a href="https://www.linkedin.com/in/your-profile">LinkedIn</a>
+    I'm a Unity Game Developer with 4+ years of professional experience building games for mobile and Web3. From RPGs and FPS to hyper-casual and idle games, I deliver clean architecture, performance-optimized gameplay, and scalable features.
   </p>
+</section>
+
+<section class="section">
+  <h2>Projects</h2>
+  <div class="project-grid">
+
+    <div class="card">
+      <img src="assets/img/immutabattle.jpg" alt="ImmutaBattle RPG">
+      <h3>ImmutaBattle RPG</h3>
+      <p>Web3 RPG with NFT-based inventory, Immutable Passport, and crafting/auction mechanics.</p>
+    </div>
+
+    <div class="card">
+      <img src="assets/img/galactic-acres.jpg" alt="Galactic Acres">
+      <h3>Galactic Acres</h3>
+      <p>Idle game for Android/iOS. Upgrade farms, automate resource generation, and expand your intergalactic empire.</p>
+    </div>
+
+    <div class="card">
+      <img src="assets/img/horse-racing.jpg" alt="Horse Racing Multiplayer">
+      <h3>Horse Racing Multiplayer</h3>
+      <p>Android multiplayer game built using Fusion. Real-time competitive racing with rewards.</p>
+    </div>
+
+    <div class="card">
+      <img src="assets/img/last-survivor.jpg" alt="Last Survivor">
+      <h3>Last Survivor</h3>
+      <p>Endless runner in a post-apocalyptic world. Dodge, survive, and beat your high score.</p>
+    </div>
+
+    <div class="card">
+      <img src="assets/img/mr-balanstien.jpg" alt="Mr. Balanstien">
+      <h3>Mr. Balanstien</h3>
+      <p>Physics-based puzzle platformer with deterministic gameplay and IAPs.</p>
+    </div>
+
+    <div class="card">
+      <img src="assets/img/fps.jpg" alt="3D FPS">
+      <h3>3D FPS (Unity)</h3>
+      <p>First-person shooter showcasing level design, gunplay mechanics, and game feel polish.</p>
+    </div>
+
+    <div class="card">
+      <img src="assets/img/flight-system.jpg" alt="Flight Reservation System">
+      <h3>Flight Reservation System</h3>
+      <p>GUI-based booking app in Java. Includes flight selection, ticketing, and user management.</p>
+    </div>
+
+    <div class="card">
+      <img src="assets/img/ai-chatbot.jpg" alt="AI Chatbot">
+      <h3>AI Chatbot</h3>
+      <p>Python-based natural language bot built as a final year university project.</p>
+    </div>
+
+  </div>
+</section>
+
+<footer>
+  &copy; 2025 Muhammad Umair Umar – Built with ❤️ and Unity
+</footer>
+
+<script>
+  function toggleTheme() {
+    const currentTheme = document.documentElement.getAttribute("data-theme");
+    const newTheme = currentTheme === "light" ? "dark" : "light";
+    document.documentElement.setAttribute("data-theme", newTheme);
+  }
+</script>
+
 </body>
 </html>
