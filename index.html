@@ -68,6 +68,33 @@
       max-width: 1000px;
       margin: auto;
       padding: 3rem 1rem;
+      position: relative;
+      z-index: 1;
+    }
+
+    .video-bg {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      z-index: 0;
+    }
+
+    .video-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(15, 23, 42, 0.75);
+      z-index: 1;
+    }
+
+    .section h2, .project-grid {
+      position: relative;
+      z-index: 2;
     }
 
     .section h2 {
@@ -167,17 +194,23 @@
   </section>
 
   <section class="section">
+    <!-- Background Video -->
+    <video autoplay muted loop playsinline class="video-bg">
+      <source src="assets/videos/background.mp4" type="video/mp4" />
+    </video>
+    <div class="video-overlay"></div>
+
     <h2>Projects</h2>
     <div class="project-grid">
 
       <div class="card">
-        <img src="assets/img/immutabattle.png" alt="ImmutaBattle RPG">
+        <img src="assets/img/immutabattle.jpg" alt="ImmutaBattle RPG">
         <h3>ImmutaBattle RPG</h3>
         <p>Web3 RPG with NFT inventory, Immutable Passport integration, and crafting/auction systems.</p>
       </div>
 
       <div class="card">
-        <img src="assets/img/galactic-acres.png" alt="Galactic Acres">
+        <img src="assets/img/galactic-acres.jpg" alt="Galactic Acres">
         <h3>Galactic Acres</h3>
         <p>Idle Android/iOS game where players build farms across space. Resource-based progression.</p>
       </div>
@@ -189,7 +222,7 @@
       </div>
 
       <div class="card">
-        <img src="assets/img/last-survivor.png" alt="Last Survivor">
+        <img src="assets/img/last-survivor.jpg" alt="Last Survivor">
         <h3>Last Survivor</h3>
         <p>Endless runner set in a post-apocalyptic world. Dodge, survive, and beat highscores.</p>
       </div>
@@ -202,7 +235,7 @@
 
       <div class="card">
         <img src="assets/img/bubble-shooter.jpg" alt="Bubble Shooter">
-        <h3>Bust A Move</h3>
+        <h3>Bubble Shooter</h3>
         <p>A casual shooter game with aim-based controls, reflection mechanics, and color match bursting. Integrated with SKILLZ SDK to enable competitive gameplay with real-time rewards.</p>
       </div>
 
@@ -222,6 +255,18 @@
         <img src="assets/img/sort-the-store.jpg" alt="Sort The Store">
         <h3>Sort The Store</h3>
         <p>A strategic store management game featuring an in-built level editor, challenging players to organize inventory efficiently and manage customer demands creatively.</p>
+      </div>
+
+      <div class="card">
+        <img src="assets/img/bizzare-ludo.jpg" alt="Bizzare Ludo">
+        <h3>Bizzare Ludo</h3>
+        <p>An engaging Ludo game featuring in-app purchases, ads integration, and offline multiplayer mode. Includes vibrant ludo-themed elements and smooth gameplay for classic family fun.</p>
+      </div>
+
+      <div class="card">
+        <img src="assets/img/match3.jpg" alt="MATCH-3">
+        <h3>MATCH-3</h3>
+        <p>A colorful match-3 puzzle game with mechanics inspired by Candy Crush, featuring intuitive swipe controls and cascading combo chains for addictive gameplay.</p>
       </div>
 
     </div>
