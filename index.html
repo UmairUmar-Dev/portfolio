@@ -7,21 +7,21 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet" />
   <style>
     :root {
-      --primary: #38bdf8;
-      --background: #0f172a;
-      --card: #1e293b;
-      --text: #e2e8f0;
-      --highlight: #facc15;
-      --link: #60a5fa;
+      --primary: #7c3aed;
+      --background: #0b0f19;
+      --card: #161b22;
+      --text: #f5f5f7;
+      --highlight: #f43f5e;
+      --link: #8b5cf6;
     }
 
     .light-theme {
-      --background: #f1f5f9;
-      --card: #ffffff;
-      --text: #1e293b;
-      --primary: #2563eb;
-      --link: #2563eb;
-      --highlight: #ca8a04;
+      --background: #ffffff;
+      --card: #f9fafb;
+      --text: #111827;
+      --primary: #7c3aed;
+      --link: #7c3aed;
+      --highlight: #db2777;
     }
 
     * {
@@ -38,18 +38,35 @@
     }
 
     header {
-      padding: 3rem 1rem 2rem;
+      padding: 2rem 1rem 1.5rem;
       text-align: center;
       background: var(--card);
     }
 
-    header h1 {
+    .header-content {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+      text-align: center;
+    }
+
+    .profile-pic {
+      width: clamp(80px, 12vw, 140px);
+      height: clamp(80px, 12vw, 140px);
+      object-fit: cover;
+      border: 2px solid var(--primary);
+      background-color: var(--card);
+    }
+
+    .header-text h1 {
+      margin-bottom: 0.25rem;
       font-size: clamp(2rem, 5vw, 3rem);
       color: var(--primary);
     }
 
-    header p {
-      margin: 0.5rem 0;
+    .header-text p {
       font-size: 1.1rem;
     }
 
@@ -73,16 +90,16 @@
     }
 
     .section.projects {
-      min-height: 120vh;
-      padding-top: 4rem;
-      padding-bottom: 4rem;
+      position: relative;
+      width: 100%;
+      padding: 4rem 1rem;
+      z-index: 1;
     }
 
     .video-bg {
       position: absolute;
-      top: 0;
-      left: 0;
-      width: 100vw;
+      inset: 0;
+      width: 100%;
       height: 100%;
       object-fit: cover;
       z-index: 0;
@@ -114,6 +131,9 @@
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
       gap: 2rem;
+      max-width: 1000px;
+      margin: 0 auto;
+      padding-top: 1rem;
     }
 
     .card {
@@ -153,7 +173,7 @@
       margin: 1rem auto 0;
       padding: 0.6rem 1.2rem;
       background: var(--primary);
-      color: black;
+      color: white;
       border: none;
       border-radius: 6px;
       font-weight: bold;
@@ -181,8 +201,14 @@
 <body>
 
   <header>
-    <h1>Muhammad Umair Umar</h1>
-    <p>Unity Game Developer | Web3 | Hyper-Casual | RPG | FPS | Puzzle</p>
+    <div class="header-content">
+      <img src="assets/img/profile.jpg" alt="Profile Picture" class="profile-pic" />
+      <div class="header-text">
+        <h1>Muhammad Umair Umar</h1>
+        <p>Unity Game Developer | Web3 | Hyper-Casual | RPG | FPS | Puzzle</p>
+      </div>
+    </div>
+
     <div class="nav-links">
       <a href="https://github.com/UmairUmar-Dev" target="_blank">GitHub</a>
       <a href="https://www.linkedin.com/in/umairumar94/" target="_blank">LinkedIn</a>
@@ -208,71 +234,17 @@
     <h2>Projects</h2>
     <div class="project-grid">
 
-      <div class="card">
-        <img src="assets/img/immutabattle.png" alt="ImmutaBattle RPG">
-        <h3>ImmutaBattle RPG</h3>
-        <p>Web3 RPG with NFT inventory, Immutable Passport integration, and crafting/auction systems.</p>
-      </div>
-
-      <div class="card">
-        <img src="assets/img/galactic-acres.png" alt="Galactic Acres">
-        <h3>Galactic Acres</h3>
-        <p>Idle Android/iOS game where players build farms across space. Resource-based progression.</p>
-      </div>
-
-      <div class="card">
-        <img src="assets/img/horse-racing.jpg" alt="Horse Racing Multiplayer">
-        <h3>Horse Racing Multiplayer</h3>
-        <p>Real-time racing game using Fusion networking. Multiplayer for Android devices.</p>
-      </div>
-
-      <div class="card">
-        <img src="assets/img/last-survivor.png" alt="Last Survivor">
-        <h3>Last Survivor</h3>
-        <p>Endless runner set in a post-apocalyptic world. Dodge, survive, and beat highscores.</p>
-      </div>
-
-      <div class="card">
-        <img src="assets/img/mr-balanstien.jpg" alt="Mr. Balanstien">
-        <h3>Mr. Balanstien</h3>
-        <p>Physics-based platformer with deterministic physics, IAPs, and cross-platform support.</p>
-      </div>
-
-      <div class="card">
-        <img src="assets/img/bubble-shooter.jpg" alt="Bubble Shooter">
-        <h3>Bubble Shooter</h3>
-        <p>Aim-based casual shooter with reflection mechanics and color match bursting. SKILLZ SDK enables real-time competitive rewards.</p>
-      </div>
-
-      <div class="card">
-        <img src="assets/img/park-my-ride.jpg" alt="Park My Ride">
-        <h3>Park My Ride</h3>
-        <p>Immersive parking game with a realistic fuel system, ad integration, and intuitive precision driving challenges.</p>
-      </div>
-
-      <div class="card">
-        <img src="assets/img/third-war.jpg" alt="Third War">
-        <h3>Third War</h3>
-        <p>Story-based sniper shooter with bullet physics, cinematic camera work, slow-mo kill shots, and intense war-torn missions.</p>
-      </div>
-
-      <div class="card">
-        <img src="assets/img/sort-the-store.jpg" alt="Sort The Store">
-        <h3>Sort The Store</h3>
-        <p>Store management game with level editor. Strategically organize items, shelves, and satisfy customer chaos.</p>
-      </div>
-
-      <div class="card">
-        <img src="assets/img/bizzare-ludo.png" alt="Bizzare Ludo">
-        <h3>Bizzare Ludo</h3>
-        <p>Classic Ludo reimagined — includes IAPs, ad monetization, and offline multiplayer with a vibrant board experience.</p>
-      </div>
-
-      <div class="card">
-        <img src="assets/img/match3.jpg" alt="MATCH-3">
-        <h3>MATCH-3</h3>
-        <p>Colorful swipe-to-match game like Candy Crush. Match gems, trigger combos, and unlock explosive chain reactions.</p>
-      </div>
+      <div class="card"><img src="assets/img/immutabattle.png" alt="ImmutaBattle RPG"><h3>ImmutaBattle RPG</h3><p>Web3 RPG with NFT inventory, Immutable Passport integration, and crafting/auction systems.</p></div>
+      <div class="card"><img src="assets/img/galactic-acres.png" alt="Galactic Acres"><h3>Galactic Acres</h3><p>Idle Android/iOS game where players build farms across space. Resource-based progression.</p></div>
+      <div class="card"><img src="assets/img/horse-racing.jpg" alt="Horse Racing Multiplayer"><h3>Horse Racing Multiplayer</h3><p>Real-time racing game using Fusion networking. Multiplayer for Android devices.</p></div>
+      <div class="card"><img src="assets/img/last-survivor.png" alt="Last Survivor"><h3>Last Survivor</h3><p>Endless runner set in a post-apocalyptic world. Dodge, survive, and beat highscores.</p></div>
+      <div class="card"><img src="assets/img/mr-balanstien.jpg" alt="Mr. Balanstien"><h3>Mr. Balanstien</h3><p>Physics-based platformer with deterministic physics, IAPs, and cross-platform support.</p></div>
+      <div class="card"><img src="assets/img/bubble-shooter.jpg" alt="Bubble Shooter"><h3>Bubble Shooter</h3><p>Aim-based casual shooter with reflection mechanics and color match bursting. SKILLZ SDK enables real-time competitive rewards.</p></div>
+      <div class="card"><img src="assets/img/park-my-ride.jpg" alt="Park My Ride"><h3>Park My Ride</h3><p>Immersive parking game with a realistic fuel system, ad integration, and intuitive precision driving challenges.</p></div>
+      <div class="card"><img src="assets/img/third-war.jpg" alt="Third War"><h3>Third War</h3><p>Story-based sniper shooter with bullet physics, cinematic camera work, slow-mo kill shots, and intense war-torn missions.</p></div>
+      <div class="card"><img src="assets/img/sort-the-store.jpg" alt="Sort The Store"><h3>Sort The Store</h3><p>Store management game with level editor. Strategically organize items, shelves, and satisfy customer chaos.</p></div>
+      <div class="card"><img src="assets/img/ludo.png" alt="Bizzare Ludo"><h3>Bizzare Ludo</h3><p>Classic Ludo reimagined — includes IAPs, ad monetization, and offline multiplayer with a vibrant board experience.</p></div>
+      <div class="card"><img src="assets/img/match3.jpg" alt="MATCH-3"><h3>MATCH-3</h3><p>Colorful swipe-to-match game like Candy Crush. Match gems, trigger combos, and unlock explosive chain reactions.</p></div>
 
     </div>
   </section>
