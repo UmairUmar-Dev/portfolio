@@ -3,98 +3,285 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Muhammad Umair Umar – Game Developer</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet" />
+  <title>Muhammad Umair Umar – Unity Game Developer</title>
+
+  <!-- SEO -->
+  <meta name="description" content="Muhammad Umair Umar — Unity Game Developer with 4+ years building immersive games for Android, iOS, and Web3. Multiplayer, RPG, FPS, hyper-casual, and puzzle titles in C# and Unity." />
+  <meta name="author" content="Muhammad Umair Umar" />
+  <meta name="keywords" content="Unity Game Developer, C#, Web3, Multiplayer, RPG, FPS, Hyper-Casual, Puzzle, Game Development, Android, iOS" />
+  <meta name="theme-color" content="#7c3aed" />
+  <link rel="canonical" href="https://umairumar-dev.github.io/portfolio/" />
+
+  <!-- Open Graph / social sharing -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Muhammad Umair Umar – Unity Game Developer" />
+  <meta property="og:description" content="Unity Game Developer with 4+ years building immersive games for Android, iOS, and Web3." />
+  <meta property="og:image" content="https://umairumar-dev.github.io/portfolio/assets/img/profile.jpg" />
+  <meta property="og:url" content="https://umairumar-dev.github.io/portfolio/" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Muhammad Umair Umar – Unity Game Developer" />
+  <meta name="twitter:description" content="Unity Game Developer with 4+ years building immersive games for Android, iOS, and Web3." />
+  <meta name="twitter:image" content="https://umairumar-dev.github.io/portfolio/assets/img/profile.jpg" />
+
+  <!-- Emoji favicon (no extra request) -->
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%F0%9F%8E%AE%3C/text%3E%3C/svg%3E" />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;800&display=swap" rel="stylesheet" />
+
+  <!-- Prevent theme flash: apply saved/system theme before paint -->
+  <script>
+    (function () {
+      try {
+        var saved = localStorage.getItem('theme');
+        var prefersLight = window.matchMedia('(prefers-color-scheme: light)').matches;
+        if (saved === 'light' || (!saved && prefersLight)) {
+          document.documentElement.classList.add('light-theme');
+        }
+      } catch (e) {}
+    })();
+  </script>
+
   <style>
     :root {
-      --primary: #7c3aed;
+      --primary: #8b5cf6;
+      --primary-strong: #7c3aed;
       --background: #0b0f19;
       --card: #161b22;
+      --card-border: rgba(255, 255, 255, 0.08);
       --text: #f5f5f7;
+      --muted: #a1a1aa;
       --highlight: #f43f5e;
-      --link: #8b5cf6;
+      --link: #a78bfa;
+      --chip-bg: rgba(139, 92, 246, 0.15);
+      --header-bg: rgba(11, 15, 25, 0.8);
+      --shadow: rgba(0, 0, 0, 0.35);
     }
 
-    .light-theme {
+    html.light-theme {
+      --primary: #7c3aed;
+      --primary-strong: #6d28d9;
       --background: #ffffff;
       --card: #f9fafb;
+      --card-border: rgba(0, 0, 0, 0.08);
       --text: #111827;
-      --primary: #7c3aed;
-      --link: #7c3aed;
+      --muted: #4b5563;
       --highlight: #db2777;
+      --link: #7c3aed;
+      --chip-bg: rgba(124, 58, 237, 0.1);
+      --header-bg: rgba(255, 255, 255, 0.85);
+      --shadow: rgba(0, 0, 0, 0.12);
     }
 
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; scroll-padding-top: 5rem; }
 
     body {
-      font-family: 'Inter', sans-serif;
+      font-family: 'Inter', system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
       background: var(--background);
       color: var(--text);
-      transition: all 0.3s ease;
+      line-height: 1.6;
+      transition: background 0.3s ease, color 0.3s ease;
     }
 
-    header {
-      padding: 2rem 1rem 1.5rem;
-      text-align: center;
-      background: var(--card);
+    a { color: var(--link); }
+
+    :focus-visible {
+      outline: 2px solid var(--primary);
+      outline-offset: 3px;
+      border-radius: 4px;
     }
 
-    .header-content {
+    /* ---------- Sticky nav ---------- */
+    .navbar {
+      position: sticky;
+      top: 0;
+      z-index: 50;
       display: flex;
       align-items: center;
-      justify-content: center;
-      gap: 1.5rem;
-      flex-wrap: wrap;
-      text-align: center;
+      justify-content: space-between;
+      gap: 1rem;
+      padding: 0.85rem clamp(1rem, 4vw, 2.5rem);
+      background: var(--header-bg);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--card-border);
     }
 
-    .profile-pic {
-      width: clamp(80px, 12vw, 140px);
-      height: clamp(80px, 12vw, 140px);
-      object-fit: cover;
-      border: 2px solid var(--primary);
-      background-color: var(--card);
+    .brand {
+      font-weight: 800;
+      font-size: 1.05rem;
+      color: var(--text);
+      text-decoration: none;
+      white-space: nowrap;
     }
-
-    .header-text h1 {
-      margin-bottom: 0.25rem;
-      font-size: clamp(2rem, 5vw, 3rem);
-      color: var(--primary);
-    }
-
-    .header-text p {
-      font-size: 1.1rem;
-    }
+    .brand span { color: var(--primary); }
 
     .nav-links {
-      margin-top: 1rem;
+      display: flex;
+      align-items: center;
+      gap: clamp(0.5rem, 2vw, 1.5rem);
+      flex-wrap: wrap;
     }
 
     .nav-links a {
-      margin: 0 1rem;
       text-decoration: none;
-      color: var(--link);
-      font-weight: 600;
+      color: var(--muted);
+      font-weight: 500;
+      font-size: 0.95rem;
+      transition: color 0.2s ease;
+    }
+    .nav-links a:hover { color: var(--primary); }
+
+    .theme-toggle {
+      background: transparent;
+      color: var(--text);
+      border: 1px solid var(--card-border);
+      border-radius: 8px;
+      padding: 0.4rem 0.6rem;
+      cursor: pointer;
+      font-size: 1rem;
+      line-height: 1;
+      transition: border-color 0.2s ease, transform 0.15s ease;
+    }
+    .theme-toggle:hover { border-color: var(--primary); transform: scale(1.05); }
+
+    /* ---------- Hero ---------- */
+    .hero {
+      text-align: center;
+      padding: clamp(3rem, 8vw, 5.5rem) 1.25rem 3rem;
+      background:
+        radial-gradient(1100px 480px at 50% -10%, rgba(139, 92, 246, 0.22), transparent 70%),
+        var(--background);
     }
 
+    .profile-pic {
+      width: clamp(110px, 15vw, 150px);
+      height: clamp(110px, 15vw, 150px);
+      border-radius: 50%;
+      object-fit: cover;
+      border: 3px solid var(--primary);
+      box-shadow: 0 10px 30px var(--shadow);
+      margin-bottom: 1.25rem;
+    }
+
+    .hero h1 {
+      font-size: clamp(2.1rem, 6vw, 3.4rem);
+      font-weight: 800;
+      line-height: 1.1;
+      background: linear-gradient(90deg, var(--primary), var(--highlight));
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 0.75rem;
+    }
+
+    .hero .tagline {
+      color: var(--muted);
+      font-size: clamp(1rem, 2.5vw, 1.2rem);
+      max-width: 640px;
+      margin: 0 auto 1.75rem;
+    }
+
+    .hero-actions {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.75rem;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.7rem 1.4rem;
+      border-radius: 10px;
+      font-weight: 600;
+      text-decoration: none;
+      cursor: pointer;
+      border: 1px solid transparent;
+      transition: transform 0.15s ease, box-shadow 0.2s ease, background 0.2s ease;
+    }
+    .btn-primary {
+      background: var(--primary-strong);
+      color: #fff;
+      box-shadow: 0 8px 20px rgba(124, 58, 237, 0.35);
+    }
+    .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 12px 26px rgba(124, 58, 237, 0.45); }
+    .btn-outline {
+      background: transparent;
+      color: var(--text);
+      border-color: var(--card-border);
+    }
+    .btn-outline:hover { border-color: var(--primary); transform: translateY(-2px); }
+
+    /* ---------- Sections ---------- */
     .section {
       max-width: 1000px;
       margin: auto;
-      padding: 3rem 1rem;
-      position: relative;
-      z-index: 1;
+      padding: clamp(2.5rem, 6vw, 4rem) 1.25rem;
     }
 
-    .section.projects {
-      position: relative;
-      width: 100%;
-      padding: 4rem 1rem;
-      z-index: 1;
+    .section h2 {
+      font-size: clamp(1.6rem, 4vw, 2.1rem);
+      text-align: center;
+      margin-bottom: 0.5rem;
     }
+    .section .section-sub {
+      text-align: center;
+      color: var(--muted);
+      max-width: 720px;
+      margin: 0 auto 2.25rem;
+    }
+
+    .about-text {
+      text-align: center;
+      max-width: 760px;
+      margin: 0 auto;
+      color: var(--muted);
+      font-size: 1.05rem;
+    }
+
+    .stats {
+      display: flex;
+      justify-content: center;
+      gap: clamp(1.5rem, 6vw, 3.5rem);
+      flex-wrap: wrap;
+      margin-top: 2rem;
+    }
+    .stat .num {
+      font-size: clamp(1.8rem, 5vw, 2.6rem);
+      font-weight: 800;
+      color: var(--primary);
+    }
+    .stat .label { color: var(--muted); font-size: 0.9rem; }
+
+    /* ---------- Skills ---------- */
+    .skills {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 0.6rem;
+      max-width: 780px;
+      margin: 0 auto;
+    }
+    .chip {
+      background: var(--chip-bg);
+      color: var(--link);
+      border: 1px solid var(--card-border);
+      padding: 0.45rem 0.9rem;
+      border-radius: 999px;
+      font-size: 0.9rem;
+      font-weight: 500;
+    }
+
+    /* ---------- Projects ---------- */
+    .projects-wrap { position: relative; overflow: hidden; }
+    .projects-wrap .section { position: relative; z-index: 2; }
 
     .video-bg {
       position: absolute;
@@ -104,159 +291,284 @@
       object-fit: cover;
       z-index: 0;
     }
-
     .video-overlay {
       position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: rgba(15, 23, 42, 0.75);
+      inset: 0;
+      background: linear-gradient(180deg, rgba(11, 15, 25, 0.82), rgba(11, 15, 25, 0.9));
       z-index: 1;
     }
-
-    .section h2, .project-grid {
-      position: relative;
-      z-index: 2;
-    }
-
-    .section h2 {
-      font-size: 2rem;
-      color: var(--highlight);
-      margin-bottom: 1rem;
-      text-align: center;
+    html.light-theme .video-overlay {
+      background: linear-gradient(180deg, rgba(255, 255, 255, 0.88), rgba(249, 250, 251, 0.94));
     }
 
     .project-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 2rem;
-      max-width: 1000px;
-      margin: 0 auto;
-      padding-top: 1rem;
+      grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+      gap: 1.75rem;
     }
 
     .card {
+      display: flex;
+      flex-direction: column;
       background: var(--card);
-      border-radius: 12px;
-      padding: 1rem;
-      box-shadow: 0 5px 15px rgba(0,0,0,0.15);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
-
-    .card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 10px 25px rgba(0,0,0,0.2);
-    }
-
-    .card img {
-      width: 100%;
-      border-radius: 8px;
-      margin-bottom: 1rem;
-      object-fit: cover;
-      height: 160px;
-    }
-
-    .card h3 {
-      color: var(--primary);
-      font-size: 1.25rem;
-      margin-bottom: 0.5rem;
-    }
-
-    .card p {
-      font-size: 0.95rem;
-      line-height: 1.4;
-    }
-
-    .resume-button, .theme-toggle {
-      display: inline-block;
-      margin: 1rem auto 0;
-      padding: 0.6rem 1.2rem;
-      background: var(--primary);
-      color: white;
-      border: none;
-      border-radius: 6px;
-      font-weight: bold;
+      border: 1px solid var(--card-border);
+      border-radius: 14px;
+      overflow: hidden;
       text-decoration: none;
-      cursor: pointer;
+      color: inherit;
+      box-shadow: 0 6px 18px var(--shadow);
+      transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
     }
-
-    .theme-toggle {
-      background: transparent;
+    .card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 16px 34px var(--shadow);
+      border-color: var(--primary);
+    }
+    .card-media { position: relative; aspect-ratio: 16 / 10; background: var(--background); }
+    .card-media img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+    .card-body { padding: 1.1rem 1.15rem 1.25rem; display: flex; flex-direction: column; flex: 1; }
+    .card h3 { color: var(--primary); font-size: 1.15rem; margin-bottom: 0.4rem; }
+    .card p { font-size: 0.92rem; color: var(--muted); flex: 1; }
+    .card .view {
+      margin-top: 0.9rem;
+      font-size: 0.85rem;
+      font-weight: 600;
       color: var(--link);
-      border: 1px solid var(--link);
-      margin-left: 1rem;
+      opacity: 0;
+      transform: translateX(-4px);
+      transition: opacity 0.2s ease, transform 0.2s ease;
+    }
+    .card[href]:not([href="#"]):hover .view,
+    .card[href]:not([href="#"]):focus-visible .view { opacity: 1; transform: translateX(0); }
+
+    /* ---------- Contact ---------- */
+    .contact { text-align: center; }
+    .contact-links {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+      margin-top: 1.5rem;
     }
 
+    /* ---------- Footer ---------- */
     footer {
       text-align: center;
-      padding: 2rem;
+      padding: 2.25rem 1rem;
       background: var(--card);
-      color: var(--text);
+      color: var(--muted);
       font-size: 0.9rem;
-      margin-top: 2rem;
+      border-top: 1px solid var(--card-border);
+    }
+
+    /* ---------- Scroll reveal ---------- */
+    .reveal {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+    .reveal.is-visible { opacity: 1; transform: none; }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      *, .reveal { transition: none !important; animation: none !important; }
+      .reveal { opacity: 1; transform: none; }
     }
   </style>
 </head>
 <body>
 
-  <header>
-    <div class="header-content">
-      <img src="assets/img/profile.jpg" alt="Profile Picture" class="profile-pic" />
-      <div class="header-text">
-        <h1>Muhammad Umair Umar</h1>
-        <p>Unity Game Developer | Web3 | Hyper-Casual | RPG | FPS | Puzzle</p>
-      </div>
-    </div>
-
+  <!-- ===== Navigation ===== -->
+  <nav class="navbar">
+    <a href="#top" class="brand">Umair<span>.dev</span></a>
     <div class="nav-links">
-      <a href="https://github.com/UmairUmar-Dev" target="_blank">GitHub</a>
-      <a href="https://www.linkedin.com/in/umairumar94/" target="_blank">LinkedIn</a>
-      <a href="mailto:umairu172@gmail.com">Email</a>
+      <a href="#about">About</a>
+      <a href="#skills">Skills</a>
+      <a href="#projects">Projects</a>
+      <a href="#contact">Contact</a>
+      <button class="theme-toggle" id="themeToggle" aria-label="Toggle color theme" title="Toggle theme">🌙</button>
     </div>
-    <a class="resume-button" href="assets/Muhammad_Umair_Umar_Resume.pdf" download>📄 Download Resume</a>
-    <button class="theme-toggle" onclick="toggleTheme()">Toggle Theme</button>
+  </nav>
+
+  <!-- ===== Hero ===== -->
+  <header class="hero" id="top">
+    <img src="assets/img/profile.jpg" alt="Muhammad Umair Umar" class="profile-pic" width="150" height="150" />
+    <h1>Muhammad Umair Umar</h1>
+    <p class="tagline">Unity Game Developer · Web3 · Multiplayer · RPG · FPS · Hyper-Casual · Puzzle</p>
+    <div class="hero-actions">
+      <a class="btn btn-primary" href="assets/Resume.pdf" download>📄 Download Résumé</a>
+      <a class="btn btn-outline" href="#projects">View Projects</a>
+    </div>
   </header>
 
-  <section class="section">
-    <h2>About Me</h2>
-    <p style="text-align: center; max-width: 700px; margin: auto;">
-      I’m a Unity Game Developer with 4+ years of experience creating immersive games for Android, iOS, and Web3 platforms. My specialties include scalable game architecture, multiplayer systems, action and idle gameplay, and cross-platform optimization. I lead teams, drive R&D, and build engaging, high-performance games using C#, Unity, and modern game dev practices.
-    </p>
-  </section>
+  <main>
+    <!-- ===== About ===== -->
+    <section class="section reveal" id="about">
+      <h2>About Me</h2>
+      <p class="about-text">
+        I'm a Unity Game Developer with 4+ years of experience creating immersive games for Android, iOS,
+        and Web3 platforms. My specialties include scalable game architecture, multiplayer systems, action
+        and idle gameplay, and cross-platform optimization. I lead teams, drive R&amp;D, and build engaging,
+        high-performance games using C#, Unity, and modern game development practices.
+      </p>
+      <div class="stats">
+        <div class="stat"><div class="num">4+</div><div class="label">Years Experience</div></div>
+        <div class="stat"><div class="num">11+</div><div class="label">Shipped Titles</div></div>
+        <div class="stat"><div class="num">3</div><div class="label">Platforms (Android · iOS · Web3)</div></div>
+      </div>
+    </section>
 
-  <section class="section projects">
-    <video autoplay muted loop playsinline class="video-bg">
-      <source src="assets/videos/background.mp4" type="video/mp4" />
-    </video>
-    <div class="video-overlay"></div>
+    <!-- ===== Skills ===== -->
+    <section class="section reveal" id="skills">
+      <h2>Skills &amp; Tools</h2>
+      <p class="section-sub">Technologies and disciplines I work with day to day.</p>
+      <div class="skills">
+        <span class="chip">Unity</span>
+        <span class="chip">C#</span>
+        <span class="chip">Multiplayer (Fusion / Photon)</span>
+        <span class="chip">Web3 / NFT Integration</span>
+        <span class="chip">Immutable Passport</span>
+        <span class="chip">Game Architecture</span>
+        <span class="chip">Cross-Platform Optimization</span>
+        <span class="chip">IAP &amp; Ad Monetization</span>
+        <span class="chip">Deterministic Physics</span>
+        <span class="chip">SKILLZ SDK</span>
+        <span class="chip">Android</span>
+        <span class="chip">iOS</span>
+        <span class="chip">Git</span>
+        <span class="chip">Team Leadership &amp; R&amp;D</span>
+      </div>
+    </section>
 
-    <h2>Projects</h2>
-    <div class="project-grid">
+    <!-- ===== Projects ===== -->
+    <div class="projects-wrap">
+      <video class="video-bg" autoplay muted loop playsinline preload="none" aria-hidden="true">
+        <source src="assets/videos/background.mp4" type="video/mp4" />
+      </video>
+      <div class="video-overlay"></div>
 
-      <div class="card"><img src="assets/img/immutabattle.png" alt="ImmutaBattle RPG"><h3>ImmutaBattle RPG</h3><p>Web3 RPG with NFT inventory, Immutable Passport integration, and crafting/auction systems.</p></div>
-      <div class="card"><img src="assets/img/galactic-acres.png" alt="Galactic Acres"><h3>Galactic Acres</h3><p>Idle Android/iOS game where players build farms across space. Resource-based progression.</p></div>
-      <div class="card"><img src="assets/img/horse-racing.jpg" alt="Horse Racing Multiplayer"><h3>Horse Racing Multiplayer</h3><p>Real-time racing game using Fusion networking. Multiplayer for Android devices.</p></div>
-      <div class="card"><img src="assets/img/last-survivor.png" alt="Last Survivor"><h3>Last Survivor</h3><p>Endless runner set in a post-apocalyptic world. Dodge, survive, and beat highscores.</p></div>
-      <div class="card"><img src="assets/img/mr-balanstien.jpg" alt="Mr. Balanstien"><h3>Mr. Balanstien</h3><p>Physics-based platformer with deterministic physics, IAPs, and cross-platform support.</p></div>
-      <div class="card"><img src="assets/img/bubble-shooter.jpg" alt="Bubble Shooter"><h3>Bubble Shooter</h3><p>Aim-based casual shooter with reflection mechanics and color match bursting. SKILLZ SDK enables real-time competitive rewards.</p></div>
-      <div class="card"><img src="assets/img/park-my-ride.jpg" alt="Park My Ride"><h3>Park My Ride</h3><p>Immersive parking game with a realistic fuel system, ad integration, and intuitive precision driving challenges.</p></div>
-      <div class="card"><img src="assets/img/third-war.jpg" alt="Third War"><h3>Third War</h3><p>Story-based sniper shooter with bullet physics, cinematic camera work, slow-mo kill shots, and intense war-torn missions.</p></div>
-      <div class="card"><img src="assets/img/sort-the-store.jpg" alt="Sort The Store"><h3>Sort The Store</h3><p>Store management game with level editor. Strategically organize items, shelves, and satisfy customer chaos.</p></div>
-      <div class="card"><img src="assets/img/ludo.png" alt="Bizzare Ludo"><h3>Bizzare Ludo</h3><p>Classic Ludo reimagined — includes IAPs, ad monetization, and offline multiplayer with a vibrant board experience.</p></div>
-      <div class="card"><img src="assets/img/match3.jpg" alt="MATCH-3"><h3>MATCH-3</h3><p>Colorful swipe-to-match game like Candy Crush. Match gems, trigger combos, and unlock explosive chain reactions.</p></div>
-
+      <section class="section reveal" id="projects">
+        <h2>Projects</h2>
+        <p class="section-sub">A selection of games I've built and shipped.</p>
+        <div class="project-grid">
+          <!-- To make a card link out, replace href="#" with the store/demo URL. -->
+          <a class="card" href="#" rel="noopener">
+            <div class="card-media"><img src="assets/img/immutabattle.png" alt="ImmutaBattle RPG" loading="lazy" decoding="async" /></div>
+            <div class="card-body"><h3>ImmutaBattle RPG</h3><p>Web3 RPG with NFT inventory, Immutable Passport integration, and crafting/auction systems.</p><span class="view">View project →</span></div>
+          </a>
+          <a class="card" href="#" rel="noopener">
+            <div class="card-media"><img src="assets/img/galactic-acres.png" alt="Galactic Acres" loading="lazy" decoding="async" /></div>
+            <div class="card-body"><h3>Galactic Acres</h3><p>Idle Android/iOS game where players build farms across space. Resource-based progression.</p><span class="view">View project →</span></div>
+          </a>
+          <a class="card" href="#" rel="noopener">
+            <div class="card-media"><img src="assets/img/horse-racing.jpg" alt="Horse Racing Multiplayer" loading="lazy" decoding="async" /></div>
+            <div class="card-body"><h3>Horse Racing Multiplayer</h3><p>Real-time racing game using Fusion networking. Multiplayer for Android devices.</p><span class="view">View project →</span></div>
+          </a>
+          <a class="card" href="#" rel="noopener">
+            <div class="card-media"><img src="assets/img/last-survivor.png" alt="Last Survivor" loading="lazy" decoding="async" /></div>
+            <div class="card-body"><h3>Last Survivor</h3><p>Endless runner set in a post-apocalyptic world. Dodge, survive, and beat highscores.</p><span class="view">View project →</span></div>
+          </a>
+          <a class="card" href="#" rel="noopener">
+            <div class="card-media"><img src="assets/img/mr-balanstien.jpg" alt="Mr. Balanstien" loading="lazy" decoding="async" /></div>
+            <div class="card-body"><h3>Mr. Balanstien</h3><p>Physics-based platformer with deterministic physics, IAPs, and cross-platform support.</p><span class="view">View project →</span></div>
+          </a>
+          <a class="card" href="#" rel="noopener">
+            <div class="card-media"><img src="assets/img/bubble-shooter.jpg" alt="Bubble Shooter" loading="lazy" decoding="async" /></div>
+            <div class="card-body"><h3>Bubble Shooter</h3><p>Aim-based casual shooter with reflection mechanics and color match bursting. SKILLZ SDK enables real-time competitive rewards.</p><span class="view">View project →</span></div>
+          </a>
+          <a class="card" href="#" rel="noopener">
+            <div class="card-media"><img src="assets/img/park-my-ride.jpg" alt="Park My Ride" loading="lazy" decoding="async" /></div>
+            <div class="card-body"><h3>Park My Ride</h3><p>Immersive parking game with a realistic fuel system, ad integration, and intuitive precision driving challenges.</p><span class="view">View project →</span></div>
+          </a>
+          <a class="card" href="#" rel="noopener">
+            <div class="card-media"><img src="assets/img/third-war.jpg" alt="Third War" loading="lazy" decoding="async" /></div>
+            <div class="card-body"><h3>Third War</h3><p>Story-based sniper shooter with bullet physics, cinematic camera work, slow-mo kill shots, and intense war-torn missions.</p><span class="view">View project →</span></div>
+          </a>
+          <a class="card" href="#" rel="noopener">
+            <div class="card-media"><img src="assets/img/sort-the-store.jpg" alt="Sort The Store" loading="lazy" decoding="async" /></div>
+            <div class="card-body"><h3>Sort The Store</h3><p>Store management game with level editor. Strategically organize items, shelves, and satisfy customer chaos.</p><span class="view">View project →</span></div>
+          </a>
+          <a class="card" href="#" rel="noopener">
+            <div class="card-media"><img src="assets/img/ludo.png" alt="Bizzare Ludo" loading="lazy" decoding="async" /></div>
+            <div class="card-body"><h3>Bizzare Ludo</h3><p>Classic Ludo reimagined — includes IAPs, ad monetization, and offline multiplayer with a vibrant board experience.</p><span class="view">View project →</span></div>
+          </a>
+          <a class="card" href="#" rel="noopener">
+            <div class="card-media"><img src="assets/img/match3.jpg" alt="MATCH-3" loading="lazy" decoding="async" /></div>
+            <div class="card-body"><h3>MATCH-3</h3><p>Colorful swipe-to-match game like Candy Crush. Match gems, trigger combos, and unlock explosive chain reactions.</p><span class="view">View project →</span></div>
+          </a>
+        </div>
+      </section>
     </div>
-  </section>
+
+    <!-- ===== Contact ===== -->
+    <section class="section reveal contact" id="contact">
+      <h2>Get In Touch</h2>
+      <p class="section-sub">Open to collaborations, freelance work, and full-time roles. Let's build something great.</p>
+      <div class="contact-links">
+        <a class="btn btn-primary" href="mailto:umairu172@gmail.com">✉️ Email Me</a>
+        <a class="btn btn-outline" href="https://www.linkedin.com/in/umairumar94/" target="_blank" rel="noopener">LinkedIn</a>
+        <a class="btn btn-outline" href="https://github.com/UmairUmar-Dev" target="_blank" rel="noopener">GitHub</a>
+      </div>
+    </section>
+  </main>
 
   <footer>
-    &copy; 2025 Muhammad Umair Umar — Built with Unity, Passion & Clean Code ✨
+    &copy; <span id="year"></span> Muhammad Umair Umar — Built with Unity, Passion &amp; Clean Code ✨
   </footer>
 
   <script>
-    function toggleTheme() {
-      document.body.classList.toggle('light-theme');
-    }
+    // ---- Theme toggle with persistence ----
+    (function () {
+      var root = document.documentElement;
+      var btn = document.getElementById('themeToggle');
+      function syncIcon() {
+        var isLight = root.classList.contains('light-theme');
+        btn.textContent = isLight ? '☀️' : '🌙';
+        btn.setAttribute('aria-pressed', String(isLight));
+      }
+      syncIcon();
+      btn.addEventListener('click', function () {
+        root.classList.toggle('light-theme');
+        try { localStorage.setItem('theme', root.classList.contains('light-theme') ? 'light' : 'dark'); } catch (e) {}
+        syncIcon();
+      });
+    })();
+
+    // ---- Current year ----
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // ---- Scroll reveal ----
+    (function () {
+      var els = document.querySelectorAll('.reveal');
+      if (!('IntersectionObserver' in window)) {
+        els.forEach(function (el) { el.classList.add('is-visible'); });
+        return;
+      }
+      var io = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-visible');
+            io.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.12 });
+      els.forEach(function (el) { io.observe(el); });
+    })();
+
+    // ---- Respect reduced-motion for the background video ----
+    (function () {
+      var video = document.querySelector('.video-bg');
+      if (!video) return;
+      if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+        video.removeAttribute('autoplay');
+        video.pause();
+      }
+    })();
   </script>
 
 </body>
